@@ -2,6 +2,7 @@ import styled from "@emotion/styled"
 import { useState } from "react"
 import type { FormEvent } from "react"
 import { useNavigate } from "react-router"
+import { useAuth } from "../hooks/useAuth"
 
 const Pagina = styled.div`
   min-height: 100vh;
@@ -42,13 +43,24 @@ const MensajeError = styled.p`
   color: ${({ theme }) => theme.colors.rojo};
 `
 
+const BotonCancelar = styled.button`
+  padding: ${({ theme }) => theme.spacing.sm};
+  border: none;
+  border-radius: ${({ theme }) => theme.radius.sm};
+  background: ${({ theme }) => theme.colors.rojo};
+  color: ${({ theme }) => theme.colors.blanco};
+  cursor: pointer;
+`
+
 function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const { login } = useAuth()
+    const [enviando, setEnviando] = useState(false)
     const navigate = useNavigate()
 
-    function enviar(event: FormEvent<HTMLFormElement>) {
+    async function enviar(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
         if (email.trim() === "" || password === "") {
@@ -56,8 +68,16 @@ function Login() {
             return
         }
 
+        setEnviando(true)
         setError("")
-        console.log({ email: email.trim(), password })
+        try {
+            await login(email.trim(), password)
+            navigate("/")
+        } catch (e) {
+            setError(e instanceof Error ? e.message : "No se pudo conectar con el servidor")
+        } finally {
+            setEnviando(false)
+        }
     }
 
     return (
@@ -77,10 +97,12 @@ function Login() {
                     placeholder="Contraseña"
                 />
                 {error && <MensajeError>{error}</MensajeError>}
-                <Boton type="submit">Entrar</Boton>
-                <Boton type="button" onClick={() => navigate("/")}>
-                    Cancelar
+                <Boton type="submit" disabled={enviando}>
+                    {enviando ? "Entrando..." : "Entrar"}
                 </Boton>
+                <BotonCancelar type="button" onClick={() => navigate("/")}>
+                    Cancelar
+                </BotonCancelar>
             </Formulario>
         </Pagina>
     )

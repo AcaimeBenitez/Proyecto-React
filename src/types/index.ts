@@ -13,3 +13,9 @@ export interface Videojuego {
   plataforma: string
   type: string
 }
+
+export interface LoginRespuesta {
+  msg: string
+  token: string
+  usuario: Usuario
+}
