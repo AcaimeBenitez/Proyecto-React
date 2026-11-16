@@ -8,14 +8,14 @@ const Barra = styled.header`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
   background: ${({ theme }) => theme.colors.blanco};
 `
 
 const BotonUsuario = styled.button`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.poco};
   border: none;
   background: transparent;
   color: ${({ theme }) => theme.colors.negro};
@@ -37,17 +37,16 @@ const Avatar = styled.span`
 const Menu = styled.div`
   position: absolute;
   top: 100%;
-  right: ${({ theme }) => theme.spacing.md};
+  right: ${({ theme }) => theme.spacing.medio};
   display: flex;
   flex-direction: column;
   min-width: 160px;
   background: ${({ theme }) => theme.colors.blanco};
-  border-radius: ${({ theme }) => theme.radius.sm};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: ${({ theme }) => theme.radius.poco};
 `
 
 const Opcion = styled.button`
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.poco};
   border: none;
   background: transparent;
   color: ${({ theme }) => theme.colors.negro};
@@ -60,9 +59,9 @@ const Opcion = styled.button`
 `
 
 const BotonEntrar = styled.button`
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.sm};
+  border-radius: ${({ theme }) => theme.radius.poco};
   background: ${({ theme }) => theme.colors.azul};
   color: ${({ theme }) => theme.colors.blanco};
   cursor: pointer;

@@ -4,7 +4,7 @@ import type { Videojuego } from "../types"
 
 const Pagina = styled.div`
   min-height: 100vh;
-  padding: ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.medio};
   background: ${({ theme }) => theme.colors.negro};
 `
 
@@ -18,11 +18,10 @@ const Cabezera = styled.div`
 `
 
 const Contenedor = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: ${({ theme }) => theme.spacing.medio};
   overflow-x: auto;
   background: ${({ theme }) => theme.colors.blanco};
-  border-radius: ${({ theme }) => theme.radius.md};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: ${({ theme }) => theme.radius.medio};
 `
 
 const Tabla = styled.table`
@@ -32,14 +31,14 @@ const Tabla = styled.table`
   color: ${({ theme }) => theme.colors.negro};
 
   th {
-    padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+    padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
     text-align: left;
     color: ${({ theme }) => theme.colors.gris};
     font-weight: normal;
   }
 
   td {
-    padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+    padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
     border-top: 1px solid ${({ theme }) => theme.colors.gris};
   }
 
@@ -56,22 +55,22 @@ const Tabla = styled.table`
 const Acciones = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.poco};
 `
 
 const BotonEditar = styled.button`
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.sm};
+  border-radius: ${({ theme }) => theme.radius.poco};
   background: ${({ theme }) => theme.colors.azul};
-  color: white;
+  color:  ${({ theme }) => theme.colors.blanco};
   cursor: pointer;
 `
 
 const BotonEliminar = styled.button`
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.sm};
+  border-radius: ${({ theme }) => theme.radius.poco};
   background: ${({ theme }) => theme.colors.rojo};
   color: ${({ theme }) => theme.colors.blanco};
   cursor: pointer;

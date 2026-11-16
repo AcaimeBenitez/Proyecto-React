@@ -19,3 +19,12 @@ export interface LoginRespuesta {
   token: string
   usuario: Usuario
 }
+
+export interface Review {
+  _id: string
+  usuario: { _id: string; nombre: string }
+  videojuego: { _id: string; name: string; plataforma: string }
+  puntuacion: number
+  comentario?: string
+  createdAt: string
+}

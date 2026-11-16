@@ -10,21 +10,21 @@ const Barra = styled.aside`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.sm};
-  padding: ${({ theme }) => theme.spacing.md};
+  gap: ${({ theme }) => theme.spacing.poco};
+  padding: ${({ theme }) => theme.spacing.medio};
   background: ${({ theme }) => theme.colors.negro};
   border-right: 1px solid ${({ theme }) => theme.colors.gris};
 `
 
 const Titulo = styled.h1`
-  margin: 0 0 ${({ theme }) => theme.spacing.md};
+  margin: 0 0 ${({ theme }) => theme.spacing.medio};
   color: ${({ theme }) => theme.colors.blanco};
   font-size: 1.25rem;
 `
 
 const Enlace = styled(NavLink)`
-  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
-  border-radius: ${({ theme }) => theme.radius.sm};
+  padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
+  border-radius: ${({ theme }) => theme.radius.poco};
   color: ${({ theme }) => theme.colors.blanco};
   text-decoration: none;
 
@@ -43,6 +43,8 @@ function Sidebar() {
       <Titulo>Mi app</Titulo>
       <Enlace to="/" end>Inicio</Enlace>
       <Enlace to="/perfil">Perfil</Enlace>
+      <Enlace to="/videojuegos">Videojuegos</Enlace>
+      <Enlace to="/resenas">Reseñas</Enlace>
     </Barra>
   )
 }

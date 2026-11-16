@@ -8,13 +8,13 @@ export const theme = {
     negro: "#111827",
   },
   spacing: {
-    sm: "8px",
-    md: "16px",
-    lg: "24px",
+    poco: "8px",
+    medio: "16px",
+    grande: "24px",
   },
   radius: {
-    sm: "6px",
-    md: "10px",
+    poco: "6px",
+    medio: "10px",
   },
 }
 

@@ -16,23 +16,23 @@ const Formulario = styled.form`
   width: 320px;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.md};
-  padding: ${({ theme }) => theme.spacing.lg};
+  gap: ${({ theme }) => theme.spacing.medio};
+  padding: ${({ theme }) => theme.spacing.grande};
   background: ${({ theme }) => theme.colors.blanco};
-  border-radius: ${({ theme }) => theme.radius.md};
+  border-radius: ${({ theme }) => theme.radius.medio};
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `
 
 const Campo = styled.input`
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.poco};
   border: 1px solid #d1d5db;
-  border-radius: ${({ theme }) => theme.radius.sm};
+  border-radius: ${({ theme }) => theme.radius.poco};
 `
 
 const Boton = styled.button`
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.sm};
+  border-radius: ${({ theme }) => theme.radius.poco};
   background: ${({ theme }) => theme.colors.azul};
   color: white;
   cursor: pointer;
@@ -44,9 +44,9 @@ const MensajeError = styled.p`
 `
 
 const BotonCancelar = styled.button`
-  padding: ${({ theme }) => theme.spacing.sm};
+  padding: ${({ theme }) => theme.spacing.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.sm};
+  border-radius: ${({ theme }) => theme.radius.poco};
   background: ${({ theme }) => theme.colors.rojo};
   color: ${({ theme }) => theme.colors.blanco};
   cursor: pointer;
