@@ -20,12 +20,12 @@ const Formulario = styled.form`
   padding: ${({ theme }) => theme.spacing.grande};
   background: ${({ theme }) => theme.colors.blanco};
   border-radius: ${({ theme }) => theme.radius.medio};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px ${({ theme }) => theme.colors.negro};
 `
 
 const Campo = styled.input`
   padding: ${({ theme }) => theme.spacing.poco};
-  border: 1px solid #d1d5db;
+  border: 1px solid ${({ theme }) => theme.colors.blanco};
   border-radius: ${({ theme }) => theme.radius.poco};
 `
 

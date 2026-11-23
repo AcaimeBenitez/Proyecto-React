@@ -40,7 +40,7 @@ const Enlace = styled(NavLink)`
 function Sidebar() {
   return (
     <Barra>
-      <Titulo>Mi app</Titulo>
+      <Titulo>Videojuegos Api</Titulo>
       <Enlace to="/" end>Inicio</Enlace>
       <Enlace to="/perfil">Perfil</Enlace>
       <Enlace to="/videojuegos">Videojuegos</Enlace>
