@@ -12,33 +12,41 @@ export function clearToken() {
   sessionStorage.removeItem("token")
 }
 
-export async function api<T>(
-  ruta: string,
-  opciones: RequestInit = {},
-): Promise<T> {
+export async function api<T>(ruta: string, opciones: RequestInit = {}): Promise<T> {
   const token = getToken()
 
-  const respuesta = await fetch(`${BASE_URL}${ruta}`, {
-    ...opciones,
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...opciones.headers,
-    },
+  const cabeceras: Record<string, string> = {
+    "Content-Type": "application/json",
+  }
+  if (token) {
+    cabeceras.Authorization = "Bearer " + token
+  }
+
+  const respuesta = await fetch(BASE_URL + ruta, {
+    method: opciones.method,
+    body: opciones.body,
+    signal: opciones.signal,
+    headers: cabeceras,
   })
 
   if (respuesta.status === 401 && ruta !== "/users/login") {
     clearToken()
+    window.location.href = "/login"
     throw new Error("Sesión caducada")
   }
 
   if (!respuesta.ok) {
-    const datos = await respuesta.json().catch(() => null)
-    throw new Error(datos?.msg ?? "Error en la petición")
+    let mensaje = "Error en la petición"
+    try {
+      const datos = await respuesta.json()
+      mensaje = datos.msg
+    } catch {
+    }
+    throw new Error(mensaje)
   }
 
   if (respuesta.status === 204) {
-    return undefined as T
+    return null as T
   }
 
   return respuesta.json()

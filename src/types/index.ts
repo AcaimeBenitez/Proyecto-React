@@ -28,3 +28,9 @@ export interface Review {
   comentario?: string
   createdAt: string
 }
+
+export interface DatosVideojuego {
+  name: string
+  plataforma: string
+  type: string
+}

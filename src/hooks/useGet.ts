@@ -16,7 +16,7 @@ export function useGet<T>(ruta: string) {
         const resultado = await api<T>(ruta, { signal: controller.signal })
         setDatos(resultado)
       } catch (e) {
-        if (e instanceof DOMException && e.name === "AbortError") return
+        if (controller.signal.aborted) return
         setError(e instanceof Error ? e.message : "Error al cargar los datos")
       } finally {
         if (!controller.signal.aborted) setCargando(false)

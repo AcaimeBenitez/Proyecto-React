@@ -1,5 +1,5 @@
 export const theme = {
-  colors: {
+  color: {
     azul: "#2563eb",
     gris: "#6b7280",
     rojo: "#dc2626",
@@ -7,15 +7,15 @@ export const theme = {
     blanco: "#ffffff",
     negro: "#111827",
   },
-  spacing: {
+  espaciado: {
     poco: "8px",
     medio: "16px",
     grande: "24px",
   },
-  radius: {
+  radio_borde: {
     poco: "6px",
     medio: "10px",
-  },
+  }
 }
 
 export type Theme = typeof theme

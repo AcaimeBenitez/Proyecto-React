@@ -5,50 +5,49 @@ import { useNavigate } from "react-router"
 import { useAuth } from "../hooks/useAuth"
 
 const Pagina = styled.div`
-  min-height: 100vh;
+  min-height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.colors.negro};
+  background: ${({ theme }) => theme.color.negro};
 `
 
 const Formulario = styled.form`
   width: 320px;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.medio};
-  padding: ${({ theme }) => theme.spacing.grande};
-  background: ${({ theme }) => theme.colors.blanco};
-  border-radius: ${({ theme }) => theme.radius.medio};
-  box-shadow: 0 2px 8px ${({ theme }) => theme.colors.negro};
+  gap: ${({ theme }) => theme.espaciado.medio};
+  padding: ${({ theme }) => theme.espaciado.grande};
+  background: ${({ theme }) => theme.color.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.medio};
 `
 
 const Campo = styled.input`
-  padding: ${({ theme }) => theme.spacing.poco};
-  border: 1px solid ${({ theme }) => theme.colors.blanco};
-  border-radius: ${({ theme }) => theme.radius.poco};
+  padding: ${({ theme }) => theme.espaciado.poco};
+  border: 1px solid ${({ theme }) => theme.color.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.poco};
 `
 
 const Boton = styled.button`
-  padding: ${({ theme }) => theme.spacing.poco};
+  padding: ${({ theme }) => theme.espaciado.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.poco};
-  background: ${({ theme }) => theme.colors.azul};
+  border-radius: ${({ theme }) => theme.radio_borde.poco};
+  background: ${({ theme }) => theme.color.azul};
   color: white;
   cursor: pointer;
 `
 
 const MensajeError = styled.p`
   margin: 0;
-  color: ${({ theme }) => theme.colors.rojo};
+  color: ${({ theme }) => theme.color.rojo};
 `
 
 const BotonCancelar = styled.button`
-  padding: ${({ theme }) => theme.spacing.poco};
+  padding: ${({ theme }) => theme.espaciado.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.poco};
-  background: ${({ theme }) => theme.colors.rojo};
-  color: ${({ theme }) => theme.colors.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.poco};
+  background: ${({ theme }) => theme.color.rojo};
+  color: ${({ theme }) => theme.color.blanco};
   cursor: pointer;
 `
 

@@ -8,17 +8,17 @@ const Barra = styled.header`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
-  background: ${({ theme }) => theme.colors.blanco};
+  padding: ${({ theme }) => theme.espaciado.poco} ${({ theme }) => theme.espaciado.medio};
+  background: ${({ theme }) => theme.color.blanco};
 `
 
 const BotonUsuario = styled.button`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.poco};
+  gap: ${({ theme }) => theme.espaciado.poco};
   border: none;
   background: transparent;
-  color: ${({ theme }) => theme.colors.negro};
+  color: ${({ theme }) => theme.color.negro};
   cursor: pointer;
 `
 
@@ -29,41 +29,41 @@ const Avatar = styled.span`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.azul};
-  color: ${({ theme }) => theme.colors.blanco};
+  background: ${({ theme }) => theme.color.azul};
+  color: ${({ theme }) => theme.color.blanco};
   font-weight: bold;
 `
 
 const Menu = styled.div`
   position: absolute;
   top: 100%;
-  right: ${({ theme }) => theme.spacing.medio};
+  right: ${({ theme }) => theme.espaciado.medio};
   display: flex;
   flex-direction: column;
   min-width: 160px;
-  background: ${({ theme }) => theme.colors.blanco};
-  border-radius: ${({ theme }) => theme.radius.poco};
+  background: ${({ theme }) => theme.color.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.poco};
 `
 
 const Opcion = styled.button`
-  padding: ${({ theme }) => theme.spacing.poco};
+  padding: ${({ theme }) => theme.espaciado.poco};
   border: none;
   background: transparent;
-  color: ${({ theme }) => theme.colors.negro};
+  color: ${({ theme }) => theme.color.negro};
   text-align: left;
   cursor: pointer;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.blanco};
+    background: ${({ theme }) => theme.color.blanco};
   }
 `
 
 const BotonEntrar = styled.button`
-  padding: ${({ theme }) => theme.spacing.poco};
+  padding: ${({ theme }) => theme.espaciado.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.poco};
-  background: ${({ theme }) => theme.colors.azul};
-  color: ${({ theme }) => theme.colors.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.poco};
+  background: ${({ theme }) => theme.color.azul};
+  color: ${({ theme }) => theme.color.blanco};
   cursor: pointer;
 `
 

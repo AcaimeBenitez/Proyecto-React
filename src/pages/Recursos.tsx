@@ -1,11 +1,13 @@
 import styled from "@emotion/styled"
 import { useGet } from "../hooks/useGet"
 import type { Videojuego } from "../types"
+import { useNavigate } from "react-router"
+import { useAuth } from "../hooks/useAuth"
 
 const Pagina = styled.div`
-  min-height: 100vh;
-  padding: ${({ theme }) => theme.spacing.medio};
-  background: ${({ theme }) => theme.colors.negro};
+  min-height: 900px;
+  padding: ${({ theme }) => theme.espaciado.medio};
+  background: ${({ theme }) => theme.color.negro};
 `
 
 const Centro = styled.div`
@@ -14,32 +16,32 @@ const Centro = styled.div`
 `
 
 const Cabezera = styled.div`
-  color: ${({ theme }) => theme.colors.blanco};
+  color: ${({ theme }) => theme.color.blanco};
 `
 
 const Contenedor = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.medio};
+  margin-top: ${({ theme }) => theme.espaciado.medio};
   overflow-x: auto;
-  background: ${({ theme }) => theme.colors.blanco};
-  border-radius: ${({ theme }) => theme.radius.medio};
+  background: ${({ theme }) => theme.color.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.medio};
 `
 
 const Tabla = styled.table`
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
-  color: ${({ theme }) => theme.colors.negro};
+  color: ${({ theme }) => theme.color.negro};
 
   th {
-    padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
+    padding: ${({ theme }) => theme.espaciado.poco} ${({ theme }) => theme.espaciado.medio};
     text-align: left;
-    color: ${({ theme }) => theme.colors.gris};
+    color: ${({ theme }) => theme.color.gris};
     font-weight: normal;
   }
 
   td {
-    padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
-    border-top: 1px solid ${({ theme }) => theme.colors.gris};
+    padding: ${({ theme }) => theme.espaciado.poco} ${({ theme }) => theme.espaciado.medio};
+    border-top: 1px solid ${({ theme }) => theme.color.gris};
   }
 
   td:first-of-type {
@@ -55,28 +57,30 @@ const Tabla = styled.table`
 const Acciones = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: ${({ theme }) => theme.spacing.poco};
+  gap: ${({ theme }) => theme.espaciado.poco};
 `
 
 const BotonEditar = styled.button`
-  padding: ${({ theme }) => theme.spacing.poco};
+  padding: ${({ theme }) => theme.espaciado.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.poco};
-  background: ${({ theme }) => theme.colors.azul};
-  color:  ${({ theme }) => theme.colors.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.poco};
+  background: ${({ theme }) => theme.color.azul};
+  color:  ${({ theme }) => theme.color.blanco};
   cursor: pointer;
 `
 
 const BotonEliminar = styled.button`
-  padding: ${({ theme }) => theme.spacing.poco};
+  padding: ${({ theme }) => theme.espaciado.poco};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.poco};
-  background: ${({ theme }) => theme.colors.rojo};
-  color: ${({ theme }) => theme.colors.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.poco};
+  background: ${({ theme }) => theme.color.rojo};
+  color: ${({ theme }) => theme.color.blanco};
   cursor: pointer;
 `
 function Recursos() {
-  const { datos, cargando, error } = useGet<Videojuego[]>("/videojuegos")
+  const { datos, cargando, error } = useGet<Videojuego[]>("/videojuegos");
+  const navigate = useNavigate();
+  const { usuario } = useAuth();
 
   if (cargando) return <p>Cargando videojuegos...</p>
   if (error) return <p>{error}</p>
@@ -104,14 +108,16 @@ function Recursos() {
               </tr>
             </thead>
             <tbody>
-              {videojuegos.map((v) => (
-                <tr key={v._id}>
-                  <td>{v.name}</td>
-                  <td>{v.plataforma}</td>
-                  <td>{v.type}</td>
+              {videojuegos.map((videojuego) => (
+                <tr key={videojuego._id}>
+                  <td>{videojuego.name}</td>
+                  <td>{videojuego.plataforma}</td>
+                  <td>{videojuego.type}</td>
                   <td>
                     <Acciones>
-                      <BotonEditar type="button">Editar</BotonEditar>
+                      {usuario?.rol === "admin" && (
+                        <BotonEditar onClick={() => navigate("/videojuegos/" + videojuego._id + "/editar")}>Editar</BotonEditar>
+                      )}
                       <BotonEliminar type="button">Eliminar</BotonEliminar>
                     </Acciones>
                   </td>

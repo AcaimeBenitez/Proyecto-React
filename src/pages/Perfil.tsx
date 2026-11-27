@@ -3,19 +3,23 @@ import { useNavigate } from "react-router"
 import { useAuth } from "../hooks/useAuth"
 
 const Pagina = styled.div`
-  min-height: 100vh;
-  padding: ${({ theme }) => theme.spacing.grande};
-  background: ${({ theme }) => theme.colors.negro};
-  color: ${({ theme }) => theme.colors.blanco};
+  min-height: 900px;
+  padding: ${({ theme }) => theme.espaciado.grande};
+  background: ${({ theme }) => theme.color.negro};
+  color: ${({ theme }) => theme.color.blanco};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const Tarjeta = styled.div`
+  width: 100%;
   max-width: 400px;
-  margin-top: ${({ theme }) => theme.spacing.medio};
-  padding: ${({ theme }) => theme.spacing.grande};
-  background: ${({ theme }) => theme.colors.blanco};
-  color: ${({ theme }) => theme.colors.negro};
-  border-radius: ${({ theme }) => theme.radius.medio};
+  margin-top: ${({ theme }) => theme.espaciado.medio};
+  padding: ${({ theme }) => theme.espaciado.grande};
+  background: ${({ theme }) => theme.color.blanco};
+  color: ${({ theme }) => theme.color.negro};
+  border-radius: ${({ theme }) => theme.radio_borde.medio};
   text-align: center;
 `
 
@@ -25,10 +29,10 @@ const Avatar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto ${({ theme }) => theme.spacing.poco};
+  margin: 0 auto ${({ theme }) => theme.espaciado.poco};
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.azul};
-  color: ${({ theme }) => theme.colors.blanco};
+  background: ${({ theme }) => theme.color.azul};
+  color: ${({ theme }) => theme.color.blanco};
   font-size: 36px;
   font-weight: bold;
 `
@@ -39,32 +43,32 @@ const Nombre = styled.h2`
 
 const Etiqueta = styled.span`
   display: inline-block;
-  margin: ${({ theme }) => theme.spacing.poco} 0 ${({ theme }) => theme.spacing.medio};
+  margin: ${({ theme }) => theme.espaciado.poco} 0 ${({ theme }) => theme.espaciado.medio};
   padding: 2px 12px;
   border-radius: 999px;
-  background: ${({ theme }) => theme.colors.azul};
-  color: ${({ theme }) => theme.colors.blanco};
+  background: ${({ theme }) => theme.color.azul};
+  color: ${({ theme }) => theme.color.blanco};
   font-size: 14px;
 `
 
 const Fila = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: ${({ theme }) => theme.spacing.poco} 0;
+  padding: ${({ theme }) => theme.espaciado.poco} 0;
   border-top: 1px solid #e5e7eb;
 
   span:first-of-type {
-    color: ${({ theme }) => theme.colors.gris};
+    color: ${({ theme }) => theme.color.gris};
   }
 `
 
 const Boton = styled.button`
-  margin-top: ${({ theme }) => theme.spacing.medio};
-  padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
+  margin-top: ${({ theme }) => theme.espaciado.medio};
+  padding: ${({ theme }) => theme.espaciado.poco} ${({ theme }) => theme.espaciado.medio};
   border: none;
-  border-radius: ${({ theme }) => theme.radius.medio};
-  background: ${({ theme }) => theme.colors.azul};
-  color: ${({ theme }) => theme.colors.blanco};
+  border-radius: ${({ theme }) => theme.radio_borde.medio};
+  background: ${({ theme }) => theme.color.azul};
+  color: ${({ theme }) => theme.color.blanco};
   cursor: pointer;
 `
 

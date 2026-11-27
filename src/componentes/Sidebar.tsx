@@ -7,33 +7,33 @@ const Barra = styled.aside`
   left: 0;
   box-sizing: border-box;
   width: 220px;
-  height: 100vh;
+  height: 900px;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.poco};
-  padding: ${({ theme }) => theme.spacing.medio};
-  background: ${({ theme }) => theme.colors.negro};
-  border-right: 1px solid ${({ theme }) => theme.colors.gris};
+  gap: ${({ theme }) => theme.espaciado.poco};
+  padding: ${({ theme }) => theme.espaciado.medio};
+  background: ${({ theme }) => theme.color.negro};
+  border-right: 1px solid ${({ theme }) => theme.color.gris};
 `
 
 const Titulo = styled.h1`
-  margin: 0 0 ${({ theme }) => theme.spacing.medio};
-  color: ${({ theme }) => theme.colors.blanco};
+  margin: 0 0 ${({ theme }) => theme.espaciado.medio};
+  color: ${({ theme }) => theme.color.blanco};
   font-size: 1.25rem;
 `
 
 const Enlace = styled(NavLink)`
-  padding: ${({ theme }) => theme.spacing.poco} ${({ theme }) => theme.spacing.medio};
-  border-radius: ${({ theme }) => theme.radius.poco};
-  color: ${({ theme }) => theme.colors.blanco};
+  padding: ${({ theme }) => theme.espaciado.poco} ${({ theme }) => theme.espaciado.medio};
+  border-radio_borde: ${({ theme }) => theme.radio_borde.poco};
+  color: ${({ theme }) => theme.color.blanco};
   text-decoration: none;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.gris};
+    background: ${({ theme }) => theme.color.gris};
   }
 
   &.active {
-    background: ${({ theme }) => theme.colors.azul};
+    background: ${({ theme }) => theme.color.azul};
   }
 `
 
