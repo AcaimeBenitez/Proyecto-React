@@ -28,5 +28,5 @@ export function useGet<T>(ruta: string) {
     return () => controller.abort()
   }, [ruta])
 
-  return { datos, cargando, error }
+  return { datos, setDatos, cargando, error }
 }
